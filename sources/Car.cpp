@@ -5,7 +5,6 @@
 #include <cmath>
 #include <Car.h>
 #include <TrafficPathPoint.h>
-
 #include "MainWindow.h"
 #include "Car.h"
 
