@@ -1,0 +1,13 @@
+<RCC>
+  <qresource>
+    <file>image/Background.png</file>
+    <file>image/TrafficLight.png</file>
+    <file>image/TrafficLightActive.png</file>
+    <file>image/TrafficLightPed.png</file>
+    <file>image/TrafficLightPedActive.png</file>
+    <file>image/CarRare.png</file>
+    <file>image/CarTruck.png</file>
+    <file>image/Bus.png</file>
+    <file>image/Ped.png</file>
+  </qresource>
+</RCC>
