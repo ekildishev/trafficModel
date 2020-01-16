@@ -20,6 +20,7 @@ inline qreal normalizeAngle(qreal angle, bool canBeZero)
     while (angle > 360 and (!canBeZero or angle == 360)) {
         angle -= 360;
     }
+
     return angle;
 }
 

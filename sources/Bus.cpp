@@ -1,4 +1,6 @@
 #include <cmath>
+#include <MainWindow.h>
+#include <Car.h>
 #include "Bus.h"
 
 Bus::Bus(QPixmap *picture, const QRect &size, TrafficPath *path, int startIndex, MainWindow *parent)
@@ -12,19 +14,16 @@ void Bus::updateData(int msec)
     Car::updateData(msec);
 
     if (isStop) {
-        pedSystem->getLabel()->show();
-        pedSystem->activate(stopTimeReset);
-
-        // TODO: logic
+        pedSystem->activate(stopTimeReset + 10000);
 
         stopTime -= msec;
-
         if (stopTime < 0) {
             isStop = false;
-            pedSystem->getLabel()->hide();
             pedSystem->activate(0);
         }
     }
+
+    pedSystem->updateData(msec);
 }
 
 void Bus::updateSpeed(int msec)
@@ -36,14 +35,14 @@ void Bus::updateSpeed(int msec)
 
     Car::updateSpeed(msec);
 
-    if (!position.end->isStop() or stopDisable) {
+    if (!position.end->isBusStop() or stopDisable) {
         return;
     }
 
     QPointF delta = *position.end - position.current;
     qreal distance = std::sqrt(delta.x() * delta.x() + delta.y() * delta.y());
 
-    if (distance > 30) {
+    if (distance > 10 and distance < 30) {
         velocity -= decceleration;
         if (velocity < 15) {
             velocity = 15;
@@ -62,7 +61,23 @@ void Bus::updateImage()
 {
     Car::updateImage();
 
-    // TODO: label geometry
+    if (MainWindow::debugMode) {
+        pedSystem->getLabel()->setStyleSheet("border: 1px solid #39A939;");
+    } else {
+        pedSystem->getLabel()->setStyleSheet("");
+    }
+
+    static const qreal SIZE = 24;
+
+    QRect geometry{
+        static_cast<int>(position.current.x() + size.height() / 2. - SIZE * 0.1),
+        static_cast<int>(position.current.y() - SIZE / 2),
+        static_cast<int>(SIZE),
+        static_cast<int>(SIZE),
+    };
+
+    pedSystem->getLabel()->setGeometry(geometry);
+    pedSystem->updateImage();
 }
 
 void Bus::setNewIndex(int index)
@@ -70,7 +85,6 @@ void Bus::setNewIndex(int index)
     Car::setNewIndex(index);
 
     stopDisable = false;
-
 }
 
 void BusPedSystem::updateData(int msec)

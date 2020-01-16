@@ -23,7 +23,6 @@ protected:
     size_t maxPeds = 5;
     QList<PedData> peds{};
 
-
     bool isActive = false;
     int activeTime = 0;
 

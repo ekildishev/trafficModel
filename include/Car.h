@@ -52,6 +52,7 @@ protected:
 
     void updateRotation();
 
+    // TODO: переместить в mainwindow
     QLabel *drawCircle(const Circle &circle, const QColor &color = {255, 171, 0, 150});
     QLabel *drawSquare(const Circle &circle, const QColor &color = {255, 171, 0, 150});
 

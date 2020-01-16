@@ -53,8 +53,6 @@ PedSystem::PedData PedSystem::spawnPed()
         (isHorizontal ? label->geometry().height() : label->geometry().width()) - border
     };
 
-
-
     if (isHorizontal) {
         bool side = randomSide(generator);
         return {
@@ -142,7 +140,6 @@ void PedSystem::updateImage()
 
     // обновляем label
     label->setPixmap(newBackgroundPixmap);
-
 }
 
 QLabel *PedSystem::getLabel()

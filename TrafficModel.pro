@@ -24,16 +24,20 @@ SOURCES += \
     sources/TrafficLightSystem.cpp \
     sources/TrafficPath.cpp \
     sources/TrafficPathPoint.cpp \
+    sources/Bus.cpp \
     sources/Car.cpp \
+    sources/PedSystem.cpp \
     sources/main.cpp
 
 HEADERS += \
-  include/MainWindow.h \
-  include/TrafficLight.h \
-  include/TrafficLightSystem.h \
-  include/TrafficPath.h \
-  include/TrafficPathPoint.h \
-  include/Car.h
+    include/MainWindow.h \
+    include/TrafficLight.h \
+    include/TrafficLightSystem.h \
+    include/TrafficPath.h \
+    include/TrafficPathPoint.h \
+    include/Bus.h \
+    include/Car.h \
+    include/PedSystem.h
 
 FORMS += \
     sources/MainWindow.ui
