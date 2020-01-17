@@ -35,14 +35,14 @@ void Bus::updateSpeed(int msec)
 
     Car::updateSpeed(msec);
 
-    if (!position.end->isBusStop() or stopDisable) {
+    if (!position.end->isBusStop()||stopDisable) {
         return;
     }
 
     QPointF delta = *position.end - position.current;
     qreal distance = std::sqrt(delta.x() * delta.x() + delta.y() * delta.y());
 
-    if (distance > 10 and distance < 30) {
+    if (distance > 10&&distance < 30) {
         velocity -= decceleration;
         if (velocity < 15) {
             velocity = 15;

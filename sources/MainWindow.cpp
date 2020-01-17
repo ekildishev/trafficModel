@@ -189,7 +189,7 @@ MainWindow::MainWindow()
     auto *turnTimer = new QTimer{this};
     turnTimer->setInterval(5000);                       // попытка перестроения каждые 5 секунд
     connect(turnTimer, &QTimer::timeout, [this, interval]() {
-        QVector<Car *> shuffleCars(cars.cbegin(), cars.cend());
+        std::vector<Car *> shuffleCars(cars.cbegin(), cars.cend());
 
         std::shuffle(
             shuffleCars.begin(),

@@ -28,7 +28,7 @@ void PedSystem::activate(int time)
 
 void PedSystem::updateData(int msec)
 {
-    if (lightSystem->isPedTime() and !isActive) {
+    if (lightSystem->isPedTime()&&!isActive) {
         activate(lightSystem->getPedTime());
     }
     if (!lightSystem->isPedTime()) {

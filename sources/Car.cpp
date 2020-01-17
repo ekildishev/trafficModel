@@ -14,10 +14,10 @@
 
 inline qreal normalizeAngle(qreal angle, bool canBeZero)
 {
-    while (angle < 0 and (canBeZero or angle == 0)) {
+    while (angle < 0&&(canBeZero||angle == 0)) {
         angle += 360;
     }
-    while (angle > 360 and (!canBeZero or angle == 360)) {
+    while (angle > 360&&(!canBeZero||angle == 360)) {
         angle -= 360;
     }
 
@@ -136,7 +136,7 @@ void Car::updateSpeed(int msec)
         collisionSideHit = parent->isCarsInCollision(getSideCollisions(isDoingTurn), this);
     }
 
-    if (collisionHit == 1 or collisionHit == 2 or (collisionSideHit < 2 and collisionSideHit != -1)) {
+    if (collisionHit == 1||collisionHit == 2||(collisionSideHit < 2&&collisionSideHit != -1)) {
         velocity = 0;
         return;
     }
@@ -167,7 +167,7 @@ void Car::updateData(int msec)
     qreal newDistance = delta.manhattanLength();
 
     // Проверка на переход на следующую дугу
-    if (newDistance > position.distance or newDistance < 1) {
+    if (newDistance > position.distance||newDistance < 1) {
         if (position.end->isStop()) {       // ждем светофор
             velocity = 0;
             return;
@@ -482,7 +482,7 @@ bool Car::doTurn(bool left)
 
     // нет ли сбоку авто
     int collisionSideHit = parent->isCarsInCollision(getSideCollisions(left), this);
-    if (collisionSideHit < 5 and collisionSideHit != -1) {
+    if (collisionSideHit < 5&&collisionSideHit != -1) {
         return false;
     }
 
