@@ -1,3 +1,8 @@
+/**
+ * @file CarFactory.h
+ * @brief Файл, содержащий описание класса простой фабрики машин
+ */
+
 #pragma once
 
 #include <QVector>
@@ -7,6 +12,9 @@
 
 class MainWindow;
 
+/**
+ * @brief Простая фабрика машин
+ */
 class CarFactory
 {
     struct CarData {
@@ -16,9 +24,13 @@ class CarFactory
     };
 
 public:
-    using CarDataContainer = QVector<CarData>;
+    static const QVector<CarData> carData;          ///< Данные о машинах
 
-    static const CarDataContainer carData;
-
+    /**
+     * @brief Метод, создающий случайную машину
+     * @param parent Родительский элемент
+     * @param path Путь
+     * @return Указатель на Car
+     */
     static Car *createCar(MainWindow *parent, TrafficPath *path);
 };

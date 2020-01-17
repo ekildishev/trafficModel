@@ -1,6 +1,6 @@
 #include "CarFactory.h"
 
-const CarFactory::CarDataContainer CarFactory::carData{
+const QVector<CarFactory::CarData> CarFactory::carData{
     {
         ":/image/CarTruck.png",
         {0, 0, 38, 22},

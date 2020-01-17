@@ -203,7 +203,7 @@ MainWindow::MainWindow()
     });
     turnTimer->start();
 
-    // Adds new car every 1.5 second
+    // Adds new car every second
     auto *carTimer = new QTimer{this};
     carTimer->setInterval(1000);
 

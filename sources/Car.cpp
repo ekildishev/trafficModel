@@ -495,7 +495,7 @@ bool Car::doTurn(bool left)
     return true;
 }
 
-void Car::mouseDoubleClickEvent(QMouseEvent *event)
+void Car::mouseDoubleClickEvent(QMouseEvent *)
 {
     qDebug() << "Double click" << this;
     parent->removeCar(this);
