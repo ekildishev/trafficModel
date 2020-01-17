@@ -6,7 +6,6 @@
 
 class TrafficPathPoint: public QPointF
 {
-private:
     bool isTemporary_ = false;
 
     TrafficLight *light = nullptr;

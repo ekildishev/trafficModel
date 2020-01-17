@@ -908,7 +908,7 @@
      <string>V</string>
     </property>
     <property name="vId" stdset="0">
-     <number>7</number>
+     <number>8</number>
     </property>
     <property name="gId" stdset="0">
      <number>2</number>
@@ -1060,7 +1060,7 @@
      <string>V</string>
     </property>
     <property name="vId" stdset="0">
-     <number>8</number>
+     <number>9</number>
     </property>
     <property name="gId" stdset="0">
      <number>2</number>
@@ -1097,7 +1097,7 @@
      <string>V</string>
     </property>
     <property name="vId" stdset="0">
-     <number>9</number>
+     <number>10</number>
     </property>
     <property name="gId" stdset="0">
      <number>2</number>
@@ -2531,49 +2531,6 @@
      <number>15</number>
     </property>
    </widget>
-   <widget class="QLabel" name="path_help_65">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>430</y>
-      <width>8</width>
-      <height>8</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
-    </property>
-    <property name="text">
-     <string>V</string>
-    </property>
-    <property name="vId" stdset="0">
-     <number>5</number>
-    </property>
-    <property name="gId" stdset="0">
-     <number>6</number>
-    </property>
-    <property name="velocityMax" stdset="0">
-     <double>40.000000000000000</double>
-    </property>
-    <property name="lightId" stdset="0">
-     <number>-1</number>
-    </property>
-    <property name="lightGroup" stdset="0">
-     <number>-1</number>
-    </property>
-    <property name="leftVId" stdset="0">
-     <number>-1</number>
-    </property>
-    <property name="leftGId" stdset="0">
-     <number>-1</number>
-    </property>
-    <property name="rightVId" stdset="0">
-     <number>-1</number>
-    </property>
-    <property name="rightGId" stdset="0">
-     <number>-1</number>
-    </property>
-   </widget>
    <widget class="QLabel" name="path_help_67">
     <property name="geometry">
      <rect>
@@ -2614,7 +2571,7 @@
    <widget class="QLabel" name="path_help_68">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>440</y>
       <width>8</width>
       <height>8</height>
@@ -2627,7 +2584,7 @@
      <string>V</string>
     </property>
     <property name="vId" stdset="0">
-     <number>7</number>
+     <number>8</number>
     </property>
     <property name="gId" stdset="0">
      <number>5</number>
@@ -4623,6 +4580,938 @@
      <number>2</number>
     </property>
     <property name="isHorizontal" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_61">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>130</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="spawnRadius" stdset="0">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_62">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>130</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_63">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>130</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_64">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>130</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>30.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_66">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>120</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>30.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_69">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>90</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>5</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_70">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>6</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>12</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_71">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>480</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="spawnRadius" stdset="0">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_72">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>480</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_73">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>480</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>35.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_112">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>490</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>35.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_113">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>530</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_114">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>600</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>5</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>13</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_115">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>14</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="spawnRadius" stdset="0">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_116">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>0</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>0</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="spawnRadius" stdset="0">
+     <number>15</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_117">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_118">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>20</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>1</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>14</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_119">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>70</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>35.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_120">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>90</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>35.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_121">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_122">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>90</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>5</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>15</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_123">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>350</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>14</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>2</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="path_help_124">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>600</y>
+      <width>8</width>
+      <height>8</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(127, 115, 255);</string>
+    </property>
+    <property name="text">
+     <string>V</string>
+    </property>
+    <property name="vId" stdset="0">
+     <number>3</number>
+    </property>
+    <property name="gId" stdset="0">
+     <number>14</number>
+    </property>
+    <property name="velocityMax" stdset="0">
+     <double>999999.000000000000000</double>
+    </property>
+    <property name="lightId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="lightGroup" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftVId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="leftGId" stdset="0">
+     <number>-1</number>
+    </property>
+    <property name="busStop" stdset="0">
      <bool>false</bool>
     </property>
    </widget>

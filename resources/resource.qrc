@@ -5,8 +5,9 @@
     <file>image/TrafficLightActive.png</file>
     <file>image/TrafficLightPed.png</file>
     <file>image/TrafficLightPedActive.png</file>
-    <file>image/CarRare.png</file>
+    <file>image/CarSpeed.png</file>
     <file>image/CarTruck.png</file>
+    <file>image/CarDefault.png</file>
     <file>image/Bus.png</file>
     <file>image/Ped.png</file>
   </qresource>

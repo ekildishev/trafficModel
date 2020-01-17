@@ -103,3 +103,13 @@ int TrafficLightSystem::getPedTime()
 {
     return timePed;
 }
+
+TrafficLightSystem::~TrafficLightSystem()
+{
+    for (auto *light : lights) {
+        delete light;
+    }
+    for (auto *light : pedLights) {
+        delete light;
+    }
+}

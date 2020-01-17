@@ -1,11 +1,13 @@
 #include <QRegularExpression>
 #include <QTimer>
-#include <cmath>
+#include <QPainter>
 #include <QKeyEvent>
+#include <cmath>
 #include <random>
 #include <Bus.h>
 
 #include "Car.h"
+#include "CarFactory.h"
 #include "TrafficLight.h"
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
@@ -47,6 +49,9 @@ void MainWindow::initGraph()
             point->setLight(trafficLights[lightGroup]->getLights()[lightId]);
         }
 
+        if (trafficPaths[gId]->getPoints()[vId]) {
+            qWarning() << gId << vId << "point already created";
+        }
         trafficPaths[gId]->addPoint(point, vId);
     }
 
@@ -93,6 +98,8 @@ void MainWindow::initLights()
 
         if (!trafficLights[group]) {
             trafficLights[group] = new TrafficLightSystem{};
+
+            updateDataList.push_back(trafficLights[group]);
         }
         if (!isPed) {
             trafficLights[group]->addLight(light, id);
@@ -100,7 +107,7 @@ void MainWindow::initLights()
             trafficLights[group]->addPedLight(light);
         }
 
-        lights.push_back(light);
+        updateImageList.push_back(light);
     }
 
     trafficLights[0]->setResetTime(10000, 10000, 10000);
@@ -125,6 +132,9 @@ void MainWindow::initPeds()
             this
         };
         pedSystems.push_back(pedSystem);
+
+        updateImageList.push_back(pedSystem);
+        updateDataList.push_back(pedSystem);
     }
 }
 
@@ -152,39 +162,25 @@ MainWindow::MainWindow()
     initGraph();
     initPeds();
 
-    auto *timer = new QTimer{this};
+    auto *logic = new QTimer{this};
     int interval = 1000 / 60;
-    timer->setInterval(interval);
+    logic->setInterval(interval);
 
-    connect(timer, &QTimer::timeout, [this, interval]() {
-        for (TrafficLightSystem *system: trafficLights) {
-            if (!system) {
-                break;
-            }
-
-            system->updateData(interval);
+    connect(logic, &QTimer::timeout, [this, interval]() {
+        for (auto *updatable: updateDataList) {
+            updatable->updateData(interval);
         }
-        for (Car *car: cars) {
-            car->updateData(interval);
-        }
-        for (PedSystem *ped: pedSystems) {
-            ped->updateData(interval);
-        }
-
-        // TODO: унести отсюда
-        for (Car *car: cars) {
-            car->updateImage();
-        }
-        for (TrafficLight *light: lights) {
-            light->updateImage();
-        }
-        for (PedSystem *ped: pedSystems) {
-            ped->updateImage();
-        }
-        this->updateImage();
     });
-    timer->start();
+    logic->start();
 
+    auto *graphics = new QTimer{this};
+    graphics->setInterval(1000 / 40);
+    connect(graphics, &QTimer::timeout, [this]() {
+        for (auto *updatable: updateImageList) {
+            updatable->updateImage();
+        }
+    });
+    graphics->start();
 
     auto *turnTimer = new QTimer{this};
     turnTimer->setInterval(5000);                       // попытка перестроения каждые 5 секунд
@@ -209,7 +205,7 @@ MainWindow::MainWindow()
 
     // Adds new car every 1.5 second
     auto *carTimer = new QTimer{this};
-    carTimer->setInterval(1500);
+    carTimer->setInterval(1000);
 
     connect(carTimer, &QTimer::timeout, [this, carTimer]() {
         TrafficPath *path = nullptr;
@@ -238,35 +234,25 @@ MainWindow::MainWindow()
         if (!path) {
             return;
         }
+
+        Car *car = nullptr;
         if (path == trafficPaths[3]) {
-            auto car = new Bus{
+            car = new Bus{
                 new QPixmap{":/image/Bus.png"},
                 {0, 0, 64, 28},
                 path,
                 0,
                 this
             };
-            car->show();
-            cars.push_back(car);
-
-            return;
+        } else {
+            car = CarFactory::createCar(this, path);
         }
-
-        auto car = new Car{
-            new QPixmap{":/image/CarTruck.png"},
-            {0, 0, 38, 22},
-            path,
-            0,
-            this
-        };
-
-        std::mt19937 generator{std::random_device{}()};
-        std::uniform_real_distribution<qreal> randomVelocity(60, 75);
-        car->setVelocityMax(randomVelocity(generator));
 
         car->show();
         cars.push_back(car);
 
+        updateImageList.push_back(car);
+        updateDataList.push_back(car);
     });
     carTimer->start();
 }
@@ -297,6 +283,9 @@ int MainWindow::isCarsInCollision(const QVector<Car::Circle> &circles, Car *exce
 void MainWindow::removeCar(Car *car)
 {
     cars.removeOne(car);
+    updateDataList.removeOne(car);
+    updateImageList.removeOne(car);
+
     car->deleteLater();
 }
 
@@ -319,4 +308,71 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     if (event->key() == Qt::Key_F10) {
         debugMode = !debugMode;
     }
+}
+
+MainWindow::~MainWindow()
+{
+    for (auto *car : cars) {
+        delete car;
+    }
+    for (auto *path: trafficPaths) {
+        delete path;
+    }
+    for (auto *light: trafficLights) {
+        delete light;
+    }
+    for (auto *peds: pedSystems) {
+        delete peds;
+    }
+
+    delete background;
+    delete ui;
+}
+
+QLabel *MainWindow::drawCircle(const Car::Circle &circle, const QColor &color)
+{
+    auto label = new QLabel{this};
+    label->setGeometry(
+        circle.point.x() - circle.radius,
+        circle.point.y() - circle.radius,
+        circle.radius * 2,
+        circle.radius * 2
+    );
+
+    label->show();
+
+    QPixmap newBackgroundPixmap(circle.radius * 2, circle.radius * 2);
+    newBackgroundPixmap.fill(Qt::transparent);
+
+    QPainter painter{&newBackgroundPixmap};
+    painter.setPen(color);
+    painter.drawEllipse(
+        0,
+        0,
+        circle.radius * 2 - 2,
+        circle.radius * 2 - 2
+    );
+    painter.end();
+
+    label->setPixmap(newBackgroundPixmap);
+    return label;
+}
+
+QLabel *MainWindow::drawSquare(const Car::Circle &circle, const QColor &color)
+{
+    auto label = new QLabel{this};
+    label->setGeometry(
+        circle.point.x() - circle.radius,
+        circle.point.y() - circle.radius,
+        circle.radius * 2,
+        circle.radius * 2
+    );
+    QString colorString = QString::number(color.red()) + ", "
+        + QString::number(color.green()) + ", "
+        + QString::number(color.blue()) + ", "
+        + QString::number(color.alpha());
+    label->setStyleSheet("border: 1px solid rgba(" + colorString + ");");
+
+    label->show();
+    return label;
 }

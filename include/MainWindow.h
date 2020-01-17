@@ -15,9 +15,34 @@ namespace Ui
 class MainWindow;
 }
 
-class MainWindow: public QMainWindow
+class MainWindow: public QMainWindow, public UpdatableImageInterface
 {
 Q_OBJECT
+
+private:
+    void initBackground();
+
+    void initGraph();
+
+    void initPeds();
+
+    void initLights();
+
+    QList<Car *> cars;
+    QVector<PedSystem *> pedSystems;
+
+    QLabel *background;
+
+    QVector<TrafficPath *> trafficPaths{16, nullptr};
+    QVector<TrafficLightSystem *> trafficLights{10, nullptr};
+
+    QList<UpdatableImageInterface *> updateImageList{this};
+    QList<UpdatableDataInterface *> updateDataList{};
+
+    Ui::MainWindow *ui = nullptr;
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 public:
     static bool debugMode;
@@ -36,28 +61,11 @@ public:
 
     const QVector<TrafficPath *> &getTrafficPaths() const;
 
-    void updateImage();
+    void updateImage() override;
 
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
+    QLabel *drawCircle(const Car::Circle &circle, const QColor &color = {255, 171, 0, 150});
 
-private:
-    void initBackground();
+    QLabel *drawSquare(const Car::Circle &circle, const QColor &color = {255, 171, 0, 150});
 
-    void initGraph();
-
-    void initPeds();
-
-    void initLights();
-
-    QList<Car *> cars;                  // destroy
-    QList<TrafficLight *> lights;
-    QVector<PedSystem *> pedSystems;    // destroy
-
-    QLabel *background;                 // destroy
-
-    QVector<TrafficPath *> trafficPaths{15, nullptr};
-    QVector<TrafficLightSystem *> trafficLights{10, nullptr};
-
-    Ui::MainWindow *ui = nullptr;
+    ~MainWindow() override;
 };

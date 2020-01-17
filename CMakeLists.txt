@@ -24,6 +24,8 @@ set(
   include/Bus.h
   include/Car.h
   include/PedSystem.h
+  include/CarFactory.h
+  include/Interface.h
 )
 set(
   ${PROJECT_NAME}_SOURCE
@@ -35,6 +37,7 @@ set(
   sources/Bus.cpp
   sources/Car.cpp
   sources/PedSystem.cpp
+  sources/CarFactory.cpp
   sources/main.cpp
 )
 set(

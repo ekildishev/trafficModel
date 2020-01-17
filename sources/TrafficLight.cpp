@@ -8,24 +8,16 @@
 #include "TrafficLight.h"
 #include "MainWindow.h"
 
-QPixmap *TrafficLight::activeLightPixmap = nullptr;
-
-QPixmap *TrafficLight::backgroundPixmap = nullptr;
-
-QPixmap *TrafficLight::activeLightPedPixmap = nullptr;
-
-QPixmap *TrafficLight::backgroundPedPixmap = nullptr;
-
 TrafficLight::TrafficLight(int rotation, bool isPed, MainWindow *parent)
     : QLabel(dynamic_cast<QWidget *>(parent)),
       rotation(rotation),
       isPed(isPed),
       parent(parent)
 {
-    backgroundPixmap = new QPixmap{":image/TrafficLight.png"};
-    activeLightPixmap = new QPixmap{":image/TrafficLightActive.png"};
-    backgroundPedPixmap = new QPixmap{":image/TrafficLightPed.png"};
-    activeLightPedPixmap = new QPixmap{":image/TrafficLightPedActive.png"};
+    backgroundPixmap = QPixmap{":image/TrafficLight.png"};
+    activeLightPixmap = QPixmap{":image/TrafficLightActive.png"};
+    backgroundPedPixmap = QPixmap{":image/TrafficLightPed.png"};
+    activeLightPedPixmap = QPixmap{":image/TrafficLightPedActive.png"};
 
     this->updateImage();
 }
@@ -64,8 +56,8 @@ QPixmap TrafficLight::getActiveLightPixmap(int light)
     auto currentActiveLight = isPed ? activeLightPedPixmap : activeLightPixmap;
 
     // рисуем лампочку светофора
-    QPixmap activePixmapLayer{*currentActiveLight};
-    QPixmap activePixmap{currentActiveLight->size()};
+    const QPixmap& activePixmapLayer{currentActiveLight};
+    QPixmap activePixmap{currentActiveLight.size()};
 
     activePixmap.fill(COLORS[isPed][light]);
     activePixmap.setMask(
@@ -107,8 +99,8 @@ void TrafficLight::updateImage()
 
     // мини-костыль, реализующий поворот картинки
     QList<int> sizes{
-        currentBackground->size().width(),
-        currentBackground->size().height(),
+        currentBackground.size().width(),
+        currentBackground.size().height(),
     };
     int maxSize = *std::max_element(sizes.cbegin(), sizes.cend());
 
@@ -127,7 +119,7 @@ void TrafficLight::updateImage()
     }
 
     // рисуем фон светофора и лампу
-    painter.drawPixmap(0, 0, *currentBackground);
+    painter.drawPixmap(0, 0, currentBackground);
     painter.drawPixmap(
         0,
         DY[isPed][activeLight],    // дваигаем вниз

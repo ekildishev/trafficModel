@@ -1,41 +1,25 @@
 #pragma once
 
 #include <QLabel>
+#include "Interface.h"
 #include "TrafficPath.h"
 
 class MainWindow;
 
-class Car: public QLabel
+class Car: public QLabel, public UpdatableDataInterface, public UpdatableImageInterface
 {
+    QPixmap *picture;
+    TrafficPath *path;
+    int pointIndex;
+
+    QVector<QLabel *> debugHelp;
+
 public:
     struct Circle
     {
         QPointF point{0, 0};
         qreal radius{0};
     };
-
-    Car(QPixmap *picture, QRect size, TrafficPath *path, int startIndex, MainWindow *parent = nullptr);
-
-    virtual void updateData(int msec);
-
-    virtual void updateImage();
-
-    void setRotationAcceleration(qreal rotationAcceleration);
-
-    void setVelocityMax(qreal m);
-
-    virtual QVector<Circle> getCollisions() const;
-
-    /**
-     * @brief Основные точки соприкосновения (чтобы проверять коллизии)
-     * @return
-     */
-    virtual QVector<QPointF> getPivots() const;
-
-    // перестроиться
-    virtual bool doTurn(bool left);
-
-    ~Car() override;
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent *event) override;
@@ -51,10 +35,6 @@ protected:
     void updatePosition(TrafficPathPoint *start, TrafficPathPoint *end);
 
     void updateRotation();
-
-    // TODO: переместить в mainwindow
-    QLabel *drawCircle(const Circle &circle, const QColor &color = {255, 171, 0, 150});
-    QLabel *drawSquare(const Circle &circle, const QColor &color = {255, 171, 0, 150});
 
     void clearDebugHelp();
 
@@ -81,10 +61,28 @@ protected:
 
     int isDoingTurn = -1;           // -1 нет, 0 вправо, 1 влево
 
-private:
-    QPixmap *picture;
-    TrafficPath *path;
-    int pointIndex;
+public:
+    Car(QPixmap *picture, QRect size, TrafficPath *path, int startIndex, MainWindow *parent = nullptr);
 
-    QVector<QLabel *> debugHelp;
+    void updateData(int msec) override;
+
+    void updateImage() override;
+
+    void setRotationAcceleration(qreal rotationAcceleration);
+
+    void setVelocityMax(qreal m);
+
+    virtual QVector<Circle> getCollisions() const;
+
+    /**
+     * @brief Основные точки соприкосновения (чтобы проверять коллизии)
+     * @return
+     */
+    virtual QVector<QPointF> getPivots() const;
+
+    // перестроиться
+    virtual bool doTurn(bool left);
+
+    ~Car() override;
+
 };

@@ -18,6 +18,7 @@ PedSystem::PedSystem(bool isHorizontal, QRect geometry, TrafficLightSystem *ligh
 PedSystem::~PedSystem()
 {
     delete pedPixmap;
+    delete label;
 }
 
 void PedSystem::activate(int time)
@@ -28,7 +29,7 @@ void PedSystem::activate(int time)
 
 void PedSystem::updateData(int msec)
 {
-    if (lightSystem->isPedTime()&&!isActive) {
+    if (lightSystem->isPedTime() && !isActive) {
         activate(lightSystem->getPedTime());
     }
     if (!lightSystem->isPedTime()) {

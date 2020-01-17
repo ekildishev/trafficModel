@@ -5,7 +5,7 @@
 
 class MainWindow;
 
-class PedSystem
+class PedSystem: public UpdatableDataInterface, public UpdatableImageInterface
 {
     MainWindow *parent = nullptr;
     QPixmap *pedPixmap = new QPixmap{":/image/Ped.png"};
@@ -14,7 +14,8 @@ class PedSystem
     bool isHorizontal;
     TrafficLightSystem *lightSystem = nullptr;
 
-    struct PedData {
+    struct PedData
+    {
         QPointF position;
         QPointF delta;
     };
@@ -35,9 +36,9 @@ protected:
 public:
     PedSystem(bool isHorizontal, QRect geometry, TrafficLightSystem *lightSystem, MainWindow *parent);
 
-    virtual void updateData(int msec);
+    void updateData(int msec) override;
 
-    virtual void updateImage();
+    void updateImage() override;
 
     void activate(int time);
 

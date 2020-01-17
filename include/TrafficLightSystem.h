@@ -3,28 +3,9 @@
 #include <QObject>
 #include "TrafficLight.h"
 
-class TrafficLightSystem: public QObject
+class TrafficLightSystem: public QObject, public UpdatableDataInterface
 {
 Q_OBJECT
-
-public:
-    explicit TrafficLightSystem() = default;
-
-    void updateData(int msec);
-
-    void addLight(TrafficLight *light, int index);
-
-    void addPedLight(TrafficLight *light);
-
-    const QVector<TrafficLight *> &getLights() const;
-
-    void setResetTime(int odd, int even, int ped);
-
-    bool isPedTime() const;
-
-    int getPedTime();
-
-    // TODO: destructor
 
 private:
     int timeToNextResetOdd = 6000;
@@ -39,4 +20,22 @@ private:
     QVector<TrafficLight *> lights{10, nullptr};
     QVector<TrafficLight *> pedLights{};
 
+public:
+    explicit TrafficLightSystem() = default;
+
+    void updateData(int msec) override;
+
+    void addLight(TrafficLight *light, int index);
+
+    void addPedLight(TrafficLight *light);
+
+    const QVector<TrafficLight *> &getLights() const;
+
+    void setResetTime(int odd, int even, int ped);
+
+    bool isPedTime() const;
+
+    int getPedTime();
+
+    ~TrafficLightSystem() override;
 };

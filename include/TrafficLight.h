@@ -1,12 +1,27 @@
 #pragma once
 
 #include <QLabel>
+#include "Interface.h"
 
 class MainWindow;
 
-class TrafficLight: public QLabel
+class TrafficLight: public QLabel, public UpdatableImageInterface
 {
 Q_OBJECT
+
+private:
+    QPixmap activeLightPixmap;
+    QPixmap backgroundPixmap;
+    QPixmap activeLightPedPixmap;
+    QPixmap backgroundPedPixmap;
+
+    MainWindow *parent;
+
+    int activeLight = 0;
+    int rotation;
+    bool isPed;
+
+    QPixmap getActiveLightPixmap(int light);
 
 public:
     explicit TrafficLight(int rotation, bool isPed = false, MainWindow *parent = nullptr);
@@ -15,19 +30,5 @@ public:
 
     int getActiveLight();
 
-    void updateImage();
-
-private:
-    QPixmap getActiveLightPixmap(int light);
-
-    static QPixmap *activeLightPixmap;
-    static QPixmap *backgroundPixmap;
-    static QPixmap *activeLightPedPixmap;
-    static QPixmap *backgroundPedPixmap;
-
-    MainWindow *parent;
-
-    int activeLight = 0;
-    int rotation;
-    bool isPed;
+    void updateImage() override;
 };

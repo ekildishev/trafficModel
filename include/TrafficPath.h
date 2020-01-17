@@ -1,23 +1,15 @@
 #pragma once
 
-#include <QObject>
 #include "TrafficPathPoint.h"
 
-class TrafficPath: public QObject
+class TrafficPath
 {
-    Q_OBJECT
+    QVector<TrafficPathPoint *> points{50, nullptr};
+
 public:
-    const QVector<TrafficPathPoint*> &getPoints() const
-    {
-        return points;
-    }
+    const QVector<TrafficPathPoint *> &getPoints() const;
 
-    void addPoint(TrafficPathPoint *point, int index){
-        points[index] = point;
-    }
+    void addPoint(TrafficPathPoint *point, int index);
 
-
-private:
-    QVector<TrafficPathPoint*> points{50, nullptr};
-
+    ~TrafficPath();
 };

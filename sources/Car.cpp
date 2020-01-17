@@ -14,10 +14,10 @@
 
 inline qreal normalizeAngle(qreal angle, bool canBeZero)
 {
-    while (angle < 0&&(canBeZero||angle == 0)) {
+    while (angle < 0 && (canBeZero || angle == 0)) {
         angle += 360;
     }
-    while (angle > 360&&(!canBeZero||angle == 360)) {
+    while (angle > 360 && (!canBeZero || angle == 360)) {
         angle -= 360;
     }
 
@@ -136,7 +136,7 @@ void Car::updateSpeed(int msec)
         collisionSideHit = parent->isCarsInCollision(getSideCollisions(isDoingTurn), this);
     }
 
-    if (collisionHit == 1||collisionHit == 2||(collisionSideHit < 2&&collisionSideHit != -1)) {
+    if (collisionHit == 1 || collisionHit == 2 || (collisionSideHit < 2 && collisionSideHit != -1)) {
         velocity = 0;
         return;
     }
@@ -167,7 +167,7 @@ void Car::updateData(int msec)
     qreal newDistance = delta.manhattanLength();
 
     // Проверка на переход на следующую дугу
-    if (newDistance > position.distance||newDistance < 1) {
+    if (newDistance > position.distance || newDistance < 1) {
         if (position.end->isStop()) {       // ждем светофор
             velocity = 0;
             return;
@@ -255,18 +255,18 @@ void Car::updateImage()
 
         auto collisions = getCollisions();
         for (auto &collision: collisions) {
-            QLabel *label = drawCircle(collision);
+            QLabel *label = parent->drawCircle(collision);
             debugHelp.push_back(label);
         }
 
         auto pivots = getPivots();
         for (auto &pivot: pivots) {
-            QLabel *label = drawCircle({pivot, 3}, {255, 255, 255, 180});
+            QLabel *label = parent->drawCircle({pivot, 3}, {255, 255, 255, 180});
             debugHelp.push_back(label);
         }
 
         for (const QPointF &point: {*position.start, *position.end}) {
-            QLabel *label = drawSquare(
+            QLabel *label = parent->drawSquare(
                 {
                     point,
                     8,
@@ -398,54 +398,6 @@ QVector<QPointF> Car::getPivots() const
 
 }
 
-QLabel *Car::drawCircle(const Car::Circle &circle, const QColor &color)
-{
-    auto label = new QLabel{this->parentWidget()};
-    label->setGeometry(
-        circle.point.x() - circle.radius,
-        circle.point.y() - circle.radius,
-        circle.radius * 2,
-        circle.radius * 2
-    );
-
-    label->show();
-
-    QPixmap newBackgroundPixmap(circle.radius * 2, circle.radius * 2);
-    newBackgroundPixmap.fill(Qt::transparent);
-
-    QPainter painter{&newBackgroundPixmap};
-    painter.setPen(color);
-    painter.drawEllipse(
-        0,
-        0,
-        circle.radius * 2 - 2,
-        circle.radius * 2 - 2
-    );
-    painter.end();
-
-    label->setPixmap(newBackgroundPixmap);
-    return label;
-}
-
-QLabel *Car::drawSquare(const Car::Circle &circle, const QColor &color)
-{
-    auto label = new QLabel{this->parentWidget()};
-    label->setGeometry(
-        circle.point.x() - circle.radius,
-        circle.point.y() - circle.radius,
-        circle.radius * 2,
-        circle.radius * 2
-    );
-    QString colorString = QString::number(color.red()) + ", "
-        + QString::number(color.green()) + ", "
-        + QString::number(color.blue()) + ", "
-        + QString::number(color.alpha());
-    label->setStyleSheet("border: 1px solid rgba(" + colorString + ");");
-
-    label->show();
-    return label;
-}
-
 void Car::clearDebugHelp()
 {
     for (QLabel *object: debugHelp) {
@@ -458,7 +410,14 @@ Car::~Car()
 {
     delete picture;
     for (QLabel *label:debugHelp) {
-        label->deleteLater();
+        delete label;
+    }
+
+    if (position.start && position.start->isTemporary()) {
+        delete position.start;
+    }
+    if (position.end && position.end->isTemporary()) {
+        delete position.end;
     }
 }
 
@@ -482,7 +441,7 @@ bool Car::doTurn(bool left)
 
     // нет ли сбоку авто
     int collisionSideHit = parent->isCarsInCollision(getSideCollisions(left), this);
-    if (collisionSideHit < 5&&collisionSideHit != -1) {
+    if (collisionSideHit < 5 && collisionSideHit != -1) {
         return false;
     }
 

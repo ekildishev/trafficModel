@@ -28,9 +28,8 @@ class Bus: public Car
 protected:
     void updateSpeed(int msec) override;
 
-public:
-protected:
     void setNewIndex(int index) override;
+
 public:
     Bus(QPixmap *picture, const QRect &size, TrafficPath *path, int startIndex, MainWindow *parent);
 
@@ -38,4 +37,5 @@ public:
 
     void updateImage() override;
 
+    ~Bus() override;
 };
