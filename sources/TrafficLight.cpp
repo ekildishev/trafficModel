@@ -25,7 +25,7 @@ TrafficLight::TrafficLight(int rotation, bool isPed, MainWindow *parent)
 void TrafficLight::setActiveLight(int light)
 {
     // model
-    if (!(activeLight == 3 || (activeLight >= 0 && activeLight <= 2 - isPed))) {
+    if (!(light == 3 || (light >= 0 && light <= 2 - isPed))) {
         return;
     }
 

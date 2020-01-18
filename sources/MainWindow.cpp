@@ -203,9 +203,9 @@ MainWindow::MainWindow()
     });
     turnTimer->start();
 
-    // Adds new car every second
+    // Adds new car every 1.5 second
     auto *carTimer = new QTimer{this};
-    carTimer->setInterval(1000);
+    carTimer->setInterval(1500);
 
     connect(carTimer, &QTimer::timeout, [this, carTimer]() {
         TrafficPath *path = nullptr;
